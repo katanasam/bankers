@@ -11,7 +11,7 @@
     <style>
         body{
 
-            background:url("perso.jpg");
+            background:url("Contenu/perso.jpg");
             background-position:center;
             background-repeat: no-repeat;
         }
@@ -68,6 +68,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="lalo">
+                        <!-- boucle des diferent solde  -->
                     <div><strong> Solde </strong> :45555   <strong class="text-danger">$ </strong><strong> Date </strong>: 11 / 45/ 44</div>
                     <div><strong> Solde </strong> :45555   <strong class="text-danger">$ </strong><strong> Date </strong>: 11 / 45/ 44</div>
                     <div><strong> Solde </strong> :45555   <strong class="text-danger">$ </strong><strong> Date </strong>: 11 / 45/ 44</div>
