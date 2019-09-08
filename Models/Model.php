@@ -19,9 +19,9 @@ abstract  class Model
      */
     private static function setBdd()
     {
-        $dsn ="mysql:host=localhost;dbname=bankers;charset=utf8";
+        //$dsn ="mysql:host=localhost;dbname=bankers;charset=utf8";
 
-        self::$_bdd = new PDO($dsn,self::LOGIN,self::PASSWORD);
+        self::$_bdd = new PDO("mysql:host=localhost;dbname=bankers;charset=utf8","root","");
         self::$_bdd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
     }
 
@@ -31,11 +31,11 @@ abstract  class Model
     protected function getBdd()
     {
         // si il
-        if (self::$_bdd == null)
-        {
-            //ce ne pas une fonction statique on na pas besoin de self
-            $this->getBdd();
+        if (self::$_bdd == null) {
+            $this->setBdd();
         }
+
+
         return self::$_bdd;
     }
 
@@ -50,17 +50,19 @@ abstract  class Model
 
         // on recuper ici tous de la table passer en paramètre
         //creation de requete
-        $requete = $this->getBdd()->prepare('SELECT * FROM '.$table_para.'ORDER BY id desc');
+        $requete = $this->getBdd()->prepare('SELECT * FROM '.$table_para.' ORDER BY id_client desc');
         $requete->execute();
 
         // recuperration des donnee de la base
         // QUE LON stock dans une variable $data_recup
         // puis avec la boucle while on va la vidé  lol
-        while($data_recup = $requete->fetch(PDO::FETCH_ASSOC))
+
+        //var_dump($data = $requete->fetch(PDO::FETCH_ASSOC));
+        while($data = $requete->fetch(PDO::FETCH_ASSOC))
         {
             // on range dans le tableau les donnees sour forme d'objet
             // de type l'objet passer en para
-            $tab_var[] = new $obj_para($data_recup);
+            $tab_var[] = new $obj_para($data);
         }
 
         return $tab_var;

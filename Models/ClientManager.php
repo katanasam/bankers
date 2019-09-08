@@ -10,10 +10,11 @@ class ClientManager extends Model
 {
 
 
-    public function getAllCompte()
+    public function getAllClient()
     {
         $this->getBdd();
             //table de base de données         //objet de type client
-        $this->getALL('clients','Client');
+        var_dump($this->getALL('client','Client'));
+        return $this->getALL('client','Client');
     }
 }

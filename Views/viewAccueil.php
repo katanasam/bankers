@@ -43,11 +43,15 @@ body{
             <div class="col-md-8  row">
 
                 <!--la boucle commence ici  ------------------------------------------------------------------------------>
+               <?php
+               var_dump($clients);
+               foreach($clients as $client): ?>
+                   <!-- utilisation des GETTERS car les attributs son en privé -->
                 <div class="col-md-8">
                     <a href="Client.php">
                     <span class="btn btn-success" style="width: 300px">
-                        <p> <strong>Nom </strong>: dzdzdz
-|<strong>Prénom </strong>: dzdzdz</p>
+                        <p> <strong>Nom </strong>: <?= $client->getNom(); ?>
+|                       <strong>Prénom </strong>: dzdzdz</p>
                         <p> <strong>Numero de compte</strong></p>
                         <p> 884242824542424244</p>
                     </span>
@@ -59,12 +63,12 @@ body{
                     </span>
 
                 </div>
-
+                <?php  endforeach; ?>
 
                 <!--la boucle sarret ici ----------------------------------------------------------------------------------------->
             </div>
             <div class="col-md-4">
-                <img src="perso.jpg" width="350" height="250" alt="humain">
+                <img src="contenu/perso.jpg" width="350" height="250" alt="humain">
             </div>
 
             </div>

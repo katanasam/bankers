@@ -25,6 +25,24 @@ class Router
             spl_autoload_register(function($class_para){
                  require_once('Models/'.$class_para.'.php');
             });
+            var_dump($_GET);
+
+if(!empty($_GET))
+    echo "exist";
+else
+    echo "do not exist";
+//Method 2
+echo "<br>";
+if($_GET)
+    echo "exist";
+else
+    echo "do not exist";
+//Method 3
+if(count($_GET))
+    echo "exist";
+else
+    echo "do not exist ";
+
             // déclaration de variable vide
             $url = "";
             // on récupere tout les paramètre de l'url
@@ -53,7 +71,8 @@ class Router
 
                     // on ramene le fichier
                     require_once ($controllerFile);
-
+//                    var_dump($url);
+//                    var_dump($controller);
                     // on instancie le controller pour avoir acxé a ses methodes
                     // on lui envoie l'action en parametre qui est contenue dans lurl
                     // la variable url contien tous les paramétre

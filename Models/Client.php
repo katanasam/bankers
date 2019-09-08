@@ -8,7 +8,7 @@
 
 class Client
 {
-
+    private $id_client;
     private $nom;
     private $prenom;
     private $economie;
@@ -59,6 +59,22 @@ class Client
         }
     }
 
+    // ------------------------------------------------------
+    /**
+     * @return mixed
+     */
+    public function getIdClient()
+    {
+        return $this->id_client;
+    }
+
+    /**
+     * @param mixed $id_client
+     */
+    public function setIdClient($id_client)
+    {
+        $this->id_client = $id_client;
+    }
     /**
      * @return mixed
      */
@@ -139,6 +155,7 @@ class Client
         return $this->date;
     }
 
+    //------------------------------------------------------------------
 
 
 }
