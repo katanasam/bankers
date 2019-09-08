@@ -13,6 +13,8 @@ class Client
     private $prenom;
     private $economie;
     private $numero_client;
+
+
     private $type;
     private $date;
 
@@ -26,9 +28,6 @@ class Client
         // la date sera remplie de maniere automatique
         $date = new DateTime();
         $date->format('Y-m-d\TH:i:s.u');
-
-        // le numero clien sera remplie de maniere automatique
-        $this->numero_client= random_int(1,254887833);
 
         // affectation de la date
         $this->date = $date;
@@ -121,6 +120,13 @@ class Client
     public function setEconomie($economie)
     {
         $this->economie = $economie;
+    }
+    /**
+     * @param mixed $numero_client
+     */
+    public function setNumeroClient($numero_client)
+    {
+        $this->numero_client = $numero_client;
     }
 
     /**

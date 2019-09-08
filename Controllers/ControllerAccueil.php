@@ -44,7 +44,8 @@ class ControllerAccueil
         $this->obj_clientManger = new ClientManager();
         // utilisation de la fonction de recuperation
 
-        var_dump($clients = $this->obj_clientManger->getAllClient());
+        //var_dump($clients = $this->obj_clientManger->getAllClient());
+        $clients = $this->obj_clientManger->getAllClient();
 
         // on appele la vue dans la quelle on veut faire sortir les donnees
         require_once ('Views/viewAccueil.php');

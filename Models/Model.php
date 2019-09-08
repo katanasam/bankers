@@ -57,7 +57,7 @@ abstract  class Model
         // QUE LON stock dans une variable $data_recup
         // puis avec la boucle while on va la vidé  lol
 
-        //var_dump($data = $requete->fetch(PDO::FETCH_ASSOC));
+       //var_dump($data = $requete->fetch(PDO::FETCH_ASSOC));
         while($data = $requete->fetch(PDO::FETCH_ASSOC))
         {
             // on range dans le tableau les donnees sour forme d'objet

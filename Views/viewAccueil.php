@@ -24,6 +24,11 @@ body{
         background-color: #ffffff;
         border: solid white 5px;
     }
+        .lili{
+
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 </html>
@@ -44,22 +49,23 @@ body{
 
                 <!--la boucle commence ici  ------------------------------------------------------------------------------>
                <?php
-               var_dump($clients);
+               // je crontrole que les donneé arrive a la vue
+              // var_dump($clients);
                foreach($clients as $client): ?>
                    <!-- utilisation des GETTERS car les attributs son en privé -->
-                <div class="col-md-8">
+                <div class="col-md-8 lili ">
                     <a href="Client.php">
                     <span class="btn btn-success" style="width: 300px">
                         <p> <strong>Nom </strong>: <?= $client->getNom(); ?>
-|                       <strong>Prénom </strong>: dzdzdz</p>
+|                       <strong>  Prénom </strong>: <?= $client->getPrenom(); ?></p>
                         <p> <strong>Numero de compte</strong></p>
-                        <p> 884242824542424244</p>
+                        <p> <?= $client->getnumeroClient(); ?></p>
                     </span>
                     </a>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 lili ">
                     <span class="btn btn-danger">
-                        <p> <strong>sodle</strong> :dzdzdz</p>
+                        <p> <strong>sodle</strong>  <?= $client->getEconomie(); ?></p>
                     </span>
 
                 </div>

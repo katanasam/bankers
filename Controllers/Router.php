@@ -25,23 +25,24 @@ class Router
             spl_autoload_register(function($class_para){
                  require_once('Models/'.$class_para.'.php');
             });
-            var_dump($_GET);
 
-if(!empty($_GET))
-    echo "exist";
-else
-    echo "do not exist";
-//Method 2
-echo "<br>";
-if($_GET)
-    echo "exist";
-else
-    echo "do not exist";
-//Method 3
-if(count($_GET))
-    echo "exist";
-else
-    echo "do not exist ";
+//            var_dump($_GET);
+//
+//            if(!empty($_GET))
+//                echo "exist";
+//            else
+//                echo "do not exist";
+//            //Method 2
+//            echo "<br>";
+//            if($_GET)
+//                echo "exist";
+//            else
+//                echo "do not exist";
+//            //Method 3
+//            if(count($_GET))
+//                echo "exist";
+//            else
+//              echo "do not exist ";
 
             // déclaration de variable vide
             $url = "";

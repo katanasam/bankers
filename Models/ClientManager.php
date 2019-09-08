@@ -14,7 +14,8 @@ class ClientManager extends Model
     {
         $this->getBdd();
             //table de base de données         //objet de type client
-        var_dump($this->getALL('client','Client'));
+        // les var demp sont la pour controleé que les donnée arrive jusque ici
+        //var_dump($this->getALL('client','Client'));
         return $this->getALL('client','Client');
     }
 }
