@@ -32,6 +32,23 @@ class Client
         // affectation de la date
         $this->date = $date;
 
+        if ($tab_donnee_para['id_client'] != null)
+        {
+            $this->setIdClient($tab_donnee_para['id_client']);
+        }
+
+        // on met une regle pour le numero client
+        if ($tab_donnee_para['numero_client'] != null)
+        {
+            $this->setNumeroClient($tab_donnee_para['numero_client']);
+        }
+        else
+        {
+            $ramdom_number = rand(1,344847479);
+            $this->setNumeroClient($ramdom_number);
+        }
+
+
         // on utilise la fonction hydrate elle augmentent la securité des donnees recus
         $this->Hydrate($tab_donnee_para);
     }

@@ -62,6 +62,8 @@ abstract  class Model
         {
             // on range dans le tableau les donnees sour forme d'objet
             // de type l'objet passer en para
+
+
             $tab_var[] = new $obj_para($data);
         }
 

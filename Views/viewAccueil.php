@@ -29,6 +29,15 @@ body{
             margin-bottom: 10px;
             margin-top: 10px;
         }
+
+        .popo{
+
+            -webkit-box-shadow: 7px 3px 10px -2px rgba(0,0,0,0.49);
+            -moz-box-shadow: 7px 3px 10px -2px rgba(0,0,0,0.49);
+            box-shadow: 7px 3px 10px -2px rgba(0,0,0,0.49);
+            margin-bottom: 30px;
+
+        }
     </style>
 </head>
 </html>
@@ -45,39 +54,37 @@ body{
             <h3>Liste clients </h3>
             <div class="col-md-12 row">
 
-            <div class="col-md-8  row">
+                <?php
+                // je crontrole que les donneé arrive a la vue
+                //var_dump($clients);
+                foreach($clients as $client): ?>
+            <div class="col-md-12  popo row">
 
                 <!--la boucle commence ici  ------------------------------------------------------------------------------>
-               <?php
-               // je crontrole que les donneé arrive a la vue
-              // var_dump($clients);
-               foreach($clients as $client): ?>
+
                    <!-- utilisation des GETTERS car les attributs son en privé -->
-                <div class="col-md-8 lili ">
-                    <a href="Client.php">
-                    <span class="btn btn-success" style="width: 300px">
+                <div class="col-md-10 lili ">
+                    <a href="Client.php?url=banker;">
+                    <span class="btn btn-success" style="width: 500px">
                         <p> <strong>Nom </strong>: <?= $client->getNom(); ?>
 |                       <strong>  Prénom </strong>: <?= $client->getPrenom(); ?></p>
-                        <p> <strong>Numero de compte</strong></p>
+                      </span>
+                        <p> <strong>Numero de compte :</strong></p>
                         <p> <?= $client->getnumeroClient(); ?></p>
+
+
+                </div>
+                <div class="col-md-2 lili ">
+                    <span class="btn btn-danger">
+                        <p> <strong>Sodle</strong>  <?= $client->getEconomie();?> $</p>
                     </span>
                     </a>
                 </div>
-                <div class="col-md-4 lili ">
-                    <span class="btn btn-danger">
-                        <p> <strong>sodle</strong>  <?= $client->getEconomie(); ?></p>
-                    </span>
-
-                </div>
+            </div>
                 <?php  endforeach; ?>
 
                 <!--la boucle sarret ici ----------------------------------------------------------------------------------------->
-            </div>
-            <div class="col-md-4">
-                <img src="contenu/perso.jpg" width="350" height="250" alt="humain">
-            </div>
 
-            </div>
 
 
         </div>
