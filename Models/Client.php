@@ -6,7 +6,7 @@
  * Time: 01:40
  */
 
-class Client
+class Client extends Compte
 {
     private $id_client;
     private $nom;
@@ -27,7 +27,7 @@ class Client
     {
         // la date sera remplie de maniere automatique
         $date = new DateTime();
-        $date->format('Y-m-d\TH:i:s.u');
+        //$date->format('Y-m-d\TH:i:s.u');
 
         // affectation de la date
         $this->date = $date;
@@ -51,6 +51,10 @@ class Client
 
         // on utilise la fonction hydrate elle augmentent la securité des donnees recus
         $this->Hydrate($tab_donnee_para);
+
+
+        // ensuite ouvre moi un compte
+
     }
 
     // HYDRATATION
@@ -75,6 +79,22 @@ class Client
         }
     }
 
+
+    //---------------------------------------------------------------------------
+
+    // methodes spécifique du client
+
+    public function Debiter(Compte $compte_para,$deb_para)
+    {
+
+        // return le new solde aprés debit
+    }
+
+    public function Crediter(Compte $compte_para,$cred_papa)
+    {
+
+        // return le new solde aprés crédit
+    }
     // ------------------------------------------------------
     /**
      * @return mixed

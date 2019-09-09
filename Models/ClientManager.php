@@ -18,4 +18,16 @@ class ClientManager extends Model
         //var_dump($this->getALL('client','Client'));
         return $this->getALL('client','Client');
     }
+
+    public function getOneClient($id_para)
+    {
+        // connecxion bdd
+        $this->getBdd();
+
+        // la requette qui est dans le modèle
+        // cette fonction retourne un tableau
+
+        return $this->getOne('client',$id_para);
+
+    }
 }

@@ -64,7 +64,7 @@ body{
 
                    <!-- utilisation des GETTERS car les attributs son en privé -->
                 <div class="col-md-10 lili ">
-                    <a href="Client.php?url=banker;">
+                    <a href="http://localhost/php/bankers/index.php.?url=banke&action=showClient&id=<?= $client->getIdClient();?>">
                     <span class="btn btn-success" style="width: 500px">
                         <p> <strong>Nom </strong>: <?= $client->getNom(); ?>
 |                       <strong>  Prénom </strong>: <?= $client->getPrenom(); ?></p>

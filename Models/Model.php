@@ -62,12 +62,26 @@ abstract  class Model
         {
             // on range dans le tableau les donnees sour forme d'objet
             // de type l'objet passer en para
-
-
             $tab_var[] = new $obj_para($data);
         }
 
         return $tab_var;
+        $requete->closeCursor();
+
+    }
+
+    public function getOne($table_para,$id_para, $obj_para=null)
+    {
+        // la requette et universel car el obj_para et optionnel
+        // elle recuperent un element dans une table grace a un id
+        $requete = $this->getBdd()->prepare('SELECT * FROM '.$table_para.' WHERE id_client='.$id_para);
+        $requete->execute();
+
+        $data_recup = $requete->fetch(PDO::FETCH_ASSOC);
+
+        // var_dump($data_recup);
+        // renvoie un tableau de valeurs
+        return $data_recup;
         $requete->closeCursor();
 
     }

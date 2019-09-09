@@ -11,7 +11,7 @@
     <style>
         body{
 
-            background:url("Contenu/perso.jpg");
+            background:url("../Contenu/perso.jpg");
             background-position:center;
             background-repeat: no-repeat;
         }
@@ -51,10 +51,18 @@
             <div class="col-md-12 row mb-4">
                 <div class="col-md-6">
                     <span class="btn btn-success">
-                        <p> <strong>Nom </strong>: dzdzdz   <strong>Numero de compte</strong> :dzdzdz</p>
+                    <p> <strong>Nom </strong>: <?= $client->getNom(); ?>  <strong>Numero de compte : </strong>  <?= $client->getNumeroClient(); ?> </p>
+
+                    <p>Prenom :<?= $client->getPrenom(); ?></p>
+                    <p>Numero client : <strong class="text-danger"> N°</strong><?= $client->getNumeroClient(); ?></p>
+                    <p><?= $client->getEconomie(); ?> <strong class="text-danger">$</strong></p>
+                    <p>Type : <?= $client->getType(); ?></p>
+                    <p>Menbre depuis DATE:</p>
+                        <p><?= $client->getDate()->format('Y-m-d \ TH:i:s') ?></p>
+
                     </span>
 
-                    </f>
+
                     <form action="">
                         <label for="Solde"> Motant</label><br>
                         <input type="text" name="motant">
