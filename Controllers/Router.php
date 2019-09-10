@@ -26,8 +26,8 @@ class Router
                  require_once('Models/'.$class_para.'.php');
             });
 
-            var_dump($_GET);
-            var_dump((int)$_GET['id']);
+        //    var_dump($_GET);
+      //      var_dump((int)$_GET['id']);
 //
 //            if(!empty($_GET))
 //                echo "exist";

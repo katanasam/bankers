@@ -14,12 +14,14 @@ class Compte
     private $solde;
     private $titulaire_compte;
 
+    private $obj_comptemanager;
 
-
-    public function __construct(Client $client_para)
+    public function __construct( $id_para,$solde_para)
     {
 
-        $this->OpenCompte($client_para);
+        // des la création de l'instance
+        $this->setSolde($solde_para);
+        $this->setTitulaireCompte($id_para);
 
         // on va également créer une instance de historique pour le compte
         // car ils nous faut un suivi du compte
@@ -27,10 +29,16 @@ class Compte
 
     public function OpenCompte(Client $client_para)
     {
-        // des la création de l'instance
-        $this->setSolde($client_para->getEconomie());
-        $this->setTitulaireCompte($client_para->getIdClient());
     }
+
+    public function ConsulteCompte(Client $client_para)
+    {
+    }
+
+
+
+
+
 
     /**
      * @return mixed

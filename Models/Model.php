@@ -39,6 +39,7 @@ abstract  class Model
         return self::$_bdd;
     }
 
+    // METHODES DE RECUPERATION UNIVERSEL EN BASE DE DONNEE ---------------------------------------
     /**
      * @param $table_para ,et une tablle de la base donnée
      * @param $obj_para ,elle prend en para l'objet a recup de la base de donnée
@@ -74,7 +75,7 @@ abstract  class Model
     {
         // la requette et universel car el obj_para et optionnel
         // elle recuperent un element dans une table grace a un id
-        $requete = $this->getBdd()->prepare('SELECT * FROM '.$table_para.' WHERE id_client='.$id_para);
+        $requete = $this->getBdd()->query('SELECT * FROM '.$table_para.' WHERE id_client='.$id_para);
         $requete->execute();
 
         $data_recup = $requete->fetch(PDO::FETCH_ASSOC);
@@ -85,5 +86,7 @@ abstract  class Model
         $requete->closeCursor();
 
     }
+    // METHODES DE D'INSERTION UNIVERSEL EN BASE DE DONNEES UNIVERSEL ---------------------------------------
+
 
 }

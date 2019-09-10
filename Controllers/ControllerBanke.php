@@ -8,7 +8,8 @@
 
 class ControllerBanke
 {
-    private $obj_clientManger;
+    private $obj_clientManager;
+    private $obj_compteManager;
     private $obj_view;
 
     /**
@@ -16,6 +17,11 @@ class ControllerBanke
      */
     public function __construct($url)
     {
+        // quesque je veux ?
+        // je veut les information d'un client
+        $this->obj_clientManager = new ClientManager();
+        $this->obj_compteManager = new CompteManager();
+
         // on compte le nombre de paramètre dans url, si il est superieure a 1
         // alors sa veut dire qui y a une erreur
         // rapeler vous nous avon definis dans le ROUTER
@@ -41,13 +47,27 @@ class ControllerBanke
 
     public function showClient($id_para)
     {
-            // quesque je veux ?
-        // je veut les information d'un client
-        $this->obj_clientManger = new ClientManager();
 
-        // recupere les données d'un client
-         var_dump($this->obj_clientManger->getOneClient($id_para));
-        $client = new Client( $this->obj_clientManger->getOneClient($id_para));
+
+
+        // recupere des données
+        // que jutilise pour creer instancier un objet de type un client
+         //var_dump($this->obj_clientManger->getOneClient($id_para));
+        $client = new Client( $this->obj_clientManager->getOneClient($id_para));
+
+        // je recupere le compte client grace a sont id
+        $compte_client = $this->obj_compteManager->selectCompte($client->getIdClient());
+
+       // var_dump( $compte = new Compte($client->getIdClient(),$client->getEconomie()));
+        echo '--------------------------------';
+
+
+       //if (== null)
+       //{
+           // condition pour le create compte
+         //  $this->obj_compteManager->createCompte($compte);
+       //}
+
 
         require_once ('Views/viewClient.php');
     }

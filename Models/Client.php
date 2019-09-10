@@ -6,7 +6,7 @@
  * Time: 01:40
  */
 
-class Client extends Compte
+class Client
 {
     private $id_client;
     private $nom;
@@ -84,13 +84,13 @@ class Client extends Compte
 
     // methodes spécifique du client
 
-    public function Debiter(Compte $compte_para,$deb_para)
+    public function Debiter()
     {
 
         // return le new solde aprés debit
     }
 
-    public function Crediter(Compte $compte_para,$cred_papa)
+    public function Crediter()
     {
 
         // return le new solde aprés crédit
