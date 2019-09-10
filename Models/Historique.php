@@ -27,15 +27,15 @@ class Historique
 
     public function consulterHistorique($id_para)
     {
-        var_dump($this->obj_comptemanager->getBdd());
+        //var_dump($this->obj_comptemanager->getBdd());
         // la requette et universel car el obj_para et optionnel
         // elle recuperent un element dans une table grace a un id
-        $requete = $this->obj_comptemanager->getBdd()->prepare('SELECT * FROM historique WHERE id_compet_histo='.$id_para);
+        $requete = $this->obj_comptemanager->getBdd()->prepare('SELECT * FROM historique WHERE id_compte_histo='.$id_para);
         $requete->execute();
 
-        $histo_recup = $requete->fetch(PDO::FETCH_ASSOC);
+        $histo_recup = $requete->fetchAll(PDO::FETCH_ASSOC);
 
-        // var_dump($data_recup);
+        //var_dump($histo_recup);
         // renvoie un tableau de valeurs
         return $histo_recup;
         $requete->closeCursor();

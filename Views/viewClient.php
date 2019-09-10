@@ -22,10 +22,10 @@
             border: solid white 5px;
         }
         .lalo{
-               width: 300px;
+               width: 450px;
                height: auto;
                background-color: #ffffff;
-               border: solid #91f0ff 1px;
+               //border: solid #91f0ff 1px;
             margin: 5px;
             padding: 5px;
            }
@@ -51,7 +51,8 @@
             <div class="col-md-12 row mb-4">
                 <div class="col-md-6">
                     <span class="btn btn-success">
-                    <p> <strong>Nom </strong>: <?= $client->getNom(); ?>  <strong>Numero de compte : </strong>  <?= $client->getNumeroClient(); ?> </p>
+                        <p> <strong>Nom </strong>: <?= $client->getNom(); ?> </p>
+                        <p><strong>Numero de compte : </strong>  <?= $client->getNumeroClient(); ?> </p>
 
                     <p>Prenom :<?= $client->getPrenom(); ?></p>
                     <p>Numero client : <strong class="text-danger"> N°</strong><?= $client->getNumeroClient(); ?></p>
@@ -83,12 +84,35 @@
                 <div class="col-md-6">
                     <div class="lalo">
                         <!-- boucle des diferent solde  -->
-                    <div><strong> Solde </strong> :45555   <strong class="text-danger">$ </strong><strong> Date </strong>: 11 / 45/ 44</div>
-                    <div><strong> Solde </strong> :45555   <strong class="text-danger">$ </strong><strong> Date </strong>: 11 / 45/ 44</div>
-                    <div><strong> Solde </strong> :45555   <strong class="text-danger">$ </strong><strong> Date </strong>: 11 / 45/ 44</div>
-                    <div><strong> Solde </strong> :45555   <strong class="text-danger">$ </strong><strong> Date </strong>: 11 / 45/ 44</div>
-                    <div><strong> Solde </strong> :45555   <strong class="text-danger">$ </strong><strong> Date </strong>: 11 / 45/ 44</div>
-                    <div><strong> Solde </strong> :45555   <strong class="text-danger">$ </strong><strong> Date </strong>: 11 / 45/ 44</div>
+                        <table>
+                            <tr>
+                                <td> <strong> Ancien solde | </strong>  </td>
+                                <td> <strong> Montant| </strong>   </td>
+                                <td> <strong> Nouveau solde | </strong>   </td>
+                                <td> <strong> Date </strong></td>
+                            </tr>
+                        <tr>
+                        </table>
+                        <table>
+
+                        <?php foreach($historique as $his):?>
+                            <tr>
+                            <td> <strong> |AS  </strong>  <?= $his['ancien_solde'] ?>  <strong class="text-danger" style="width:50px">  $ </strong> </td>
+                            <td> <strong> |MT </strong>   <?php if($his['montant'] < 0) {
+                                    printf('<strong class="text-danger"> %d </strong>', $his['montant']);}
+                                    if($his['montant'] > 0) {
+                                    printf('<strong class="text-success"> %d </strong>', $his['montant']);}
+                                                           ?>
+                                <strong class="text-danger" style="width:50px">  $ </strong>  </td>
+
+
+
+                                <td> <strong> |NS  </strong>  <?= $his['nouveau_solde'] ?>  <strong class="text-danger" style="width:50px">  $ </strong>  </td>
+                            <td> <strong> |Date </strong>    2019 </td>
+                            </tr>
+                        <?php endforeach ?>
+
+                        </table>
 
                     </div>
 

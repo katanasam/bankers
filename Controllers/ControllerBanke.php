@@ -55,8 +55,9 @@ class ControllerBanke
 
         //RECUPERATION DU COMPTE ASSOCIER AU CLIENT ---------------------------------------
         // je recupere le compte client grace a sont id
-        var_dump($compte_client = $this->obj_compteManager->selectCompte($client->getIdClient()));
+        print_r($compte_client = $this->obj_compteManager->selectCompte($client->getIdClient()));
         $compte_client = $this->obj_compteManager->selectCompte($client->getIdClient());
+
 
         // si il est nul sa veut dire que le compte nexiste pas
        if ($compte_client == null)
@@ -66,10 +67,16 @@ class ControllerBanke
            $compte = new Compte($client->getIdClient(),$client->getEconomie());
            $this->obj_compteManager->createCompte($compte);
            $compte_client = $this->obj_compteManager->selectCompte($client->getIdClient());
+
        }
        //----------------------------------------------------------------------------------
         //RECUPERATION HISTORIQUE COMPTE CLIENT----------------------------------------------
-        
+       // je recupere une valeur du tableau notament ID_COMPTE
+       //var_dump($taba = $compte_client[0]['id_compte']);
+       $id_cpt = $compte_client[0]['id_compte'];
+       $histo = new Historique();
+       var_dump($histo->consulterHistorique($id_cpt));
+       $historique = $histo->consulterHistorique($id_cpt);
 
         require_once ('Views/viewClient.php');
     }
