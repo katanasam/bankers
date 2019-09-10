@@ -27,8 +27,9 @@ class Compte
         // car ils nous faut un suivi du compte
     }
 
-    public function OpenCompte(Client $client_para)
+    public function returnCompte()
     {
+
     }
 
     public function ConsulteCompte(Client $client_para)

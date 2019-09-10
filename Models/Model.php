@@ -28,7 +28,7 @@ abstract  class Model
     /**
      * recuper la connexion a la bdd
      */
-    protected function getBdd()
+    public function getBdd()
     {
         // si il
         if (self::$_bdd == null) {
@@ -44,7 +44,7 @@ abstract  class Model
      * @param $table_para ,et une tablle de la base donnée
      * @param $obj_para ,elle prend en para l'objet a recup de la base de donnée
      */
-    protected function getALL($table_para,$obj_para)
+    public function getALL($table_para,$obj_para)
     {
         // declaration d'un tableau vide
         $tab_var= [];

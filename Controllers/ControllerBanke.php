@@ -47,14 +47,16 @@ class ControllerBanke
 
     public function showClient($id_para)
     {
-
+        //RECUPERATION DATA CLIENT ------------------------------------------------------
         // recupere des données
         // que jutilise pour creer instancier un objet de type un client
-         //var_dump($this->obj_clientManger->getOneClient($id_para));
+        //var_dump($this->obj_clientManger->getOneClient($id_para));
         $client = new Client( $this->obj_clientManager->getOneClient($id_para));
 
+        //RECUPERATION DU COMPTE ASSOCIER AU CLIENT ---------------------------------------
         // je recupere le compte client grace a sont id
         var_dump($compte_client = $this->obj_compteManager->selectCompte($client->getIdClient()));
+        $compte_client = $this->obj_compteManager->selectCompte($client->getIdClient());
 
         // si il est nul sa veut dire que le compte nexiste pas
        if ($compte_client == null)
@@ -65,7 +67,9 @@ class ControllerBanke
            $this->obj_compteManager->createCompte($compte);
            $compte_client = $this->obj_compteManager->selectCompte($client->getIdClient());
        }
-
+       //----------------------------------------------------------------------------------
+        //RECUPERATION HISTORIQUE COMPTE CLIENT----------------------------------------------
+        
 
         require_once ('Views/viewClient.php');
     }
