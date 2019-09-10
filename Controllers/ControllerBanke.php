@@ -20,6 +20,7 @@ class ControllerBanke
         // quesque je veux ?
         // je veut les information d'un client
         $this->obj_clientManager = new ClientManager();
+        // je veut le compte d'un client
         $this->obj_compteManager = new CompteManager();
 
         // on compte le nombre de paramètre dans url, si il est superieure a 1
@@ -29,7 +30,6 @@ class ControllerBanke
         if (!isset($url))
         {
             throw new Exception("page introuvable !! ZONE: CONTROLLER BANKERS");
-
         }
         else
         {
@@ -48,25 +48,23 @@ class ControllerBanke
     public function showClient($id_para)
     {
 
-
-
         // recupere des données
         // que jutilise pour creer instancier un objet de type un client
          //var_dump($this->obj_clientManger->getOneClient($id_para));
         $client = new Client( $this->obj_clientManager->getOneClient($id_para));
 
         // je recupere le compte client grace a sont id
-        $compte_client = $this->obj_compteManager->selectCompte($client->getIdClient());
+        var_dump($compte_client = $this->obj_compteManager->selectCompte($client->getIdClient()));
 
-       // var_dump( $compte = new Compte($client->getIdClient(),$client->getEconomie()));
-        echo '--------------------------------';
-
-
-       //if (== null)
-       //{
+        // si il est nul sa veut dire que le compte nexiste pas
+       if ($compte_client == null)
+       {
+           // alors je luis creer un compte
            // condition pour le create compte
-         //  $this->obj_compteManager->createCompte($compte);
-       //}
+           $compte = new Compte($client->getIdClient(),$client->getEconomie());
+           $this->obj_compteManager->createCompte($compte);
+           $compte_client = $this->obj_compteManager->selectCompte($client->getIdClient());
+       }
 
 
         require_once ('Views/viewClient.php');

@@ -71,14 +71,18 @@
                         <button class="btn btn-success"> Ajouter</button>
 
                     </form>
+                    <?php foreach($compte_client as $compte):?>
+                        <span class="btn btn-primary">
+                            <p> <strong>Sodle</strong> :<?= $compte['solde'] ;?></p>
+                            <p> <strong>reF :</strong> : UIDEJ-5367990--<?= $compte['id_compte'];?></p>
+                            <p> <strong>Titulaire ID</strong> :<?= $compte['titulaire_compte']?></p>
+                        </span>
 
-                    <p> <strong>Sodle</strong> :dzdzdz</p>
+                    <?php  endforeach;  ?>
                 </div>
                 <div class="col-md-6">
                     <div class="lalo">
                         <!-- boucle des diferent solde  -->
-                    <div><strong> Solde </strong> :45555   <strong class="text-danger">$ </strong><strong> Date </strong>: 11 / 45/ 44</div>
-                    <div><strong> Solde </strong> :45555   <strong class="text-danger">$ </strong><strong> Date </strong>: 11 / 45/ 44</div>
                     <div><strong> Solde </strong> :45555   <strong class="text-danger">$ </strong><strong> Date </strong>: 11 / 45/ 44</div>
                     <div><strong> Solde </strong> :45555   <strong class="text-danger">$ </strong><strong> Date </strong>: 11 / 45/ 44</div>
                     <div><strong> Solde </strong> :45555   <strong class="text-danger">$ </strong><strong> Date </strong>: 11 / 45/ 44</div>
